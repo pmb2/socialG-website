@@ -1,0 +1,189 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { CheckCircle2 } from "lucide-react"
+
+interface ContactFormModalProps {
+  isOpen: boolean
+  onClose: () => void
+  type?: "sales" | "consultation"
+}
+
+export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFormModalProps) {
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    locations: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormState((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSelectChange = (value: string) => {
+    setFormState((prev) => ({ ...prev, locations: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+
+      // Reset form after 3 seconds and close modal
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormState({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          locations: "",
+          message: "",
+        })
+        onClose()
+      }, 3000)
+    }, 1500)
+  }
+
+  const title = type === "sales" ? "Contact Sales" : "Schedule a Consultation"
+  const description =
+    type === "sales"
+      ? "Fill out the form below and our sales team will get back to you within 24 hours."
+      : "Tell us about your agency needs and we'll schedule a personalized consultation."
+
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-[500px] rounded-xl">
+        {isSubmitted ? (
+          <div className="py-12 flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <CheckCircle2 className="w-8 h-8 text-green-600" />
+            </div>
+            <DialogTitle className="text-2xl mb-2">Thank You!</DialogTitle>
+            <DialogDescription className="text-center max-w-sm mx-auto">
+              Your message has been received. Our team will contact you shortly to discuss how we can help your agency.
+            </DialogDescription>
+          </div>
+        ) : (
+          <>
+            <DialogHeader>
+              <DialogTitle className="text-2xl">{title}</DialogTitle>
+              <DialogDescription>{description}</DialogDescription>
+            </DialogHeader>
+            <form onSubmit={handleSubmit} className="space-y-4 py-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    placeholder="John Smith"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="company">Company</Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    value={formState.company}
+                    onChange={handleChange}
+                    placeholder="Your Agency"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone Number</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={formState.phone}
+                    onChange={handleChange}
+                    placeholder="(123) 456-7890"
+                  />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="locations">Number of Locations</Label>
+                <Select onValueChange={handleSelectChange} value={formState.locations}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select number of locations" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1-10">1-10 locations</SelectItem>
+                    <SelectItem value="11-50">11-50 locations</SelectItem>
+                    <SelectItem value="51-250">51-250 locations</SelectItem>
+                    <SelectItem value="251+">251+ locations</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formState.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your needs..."
+                  className="min-h-[100px]"
+                  required
+                />
+              </div>
+              <DialogFooter className="pt-4">
+                <Button
+                  type="submit"
+                  className="w-full rounded-full bg-black hover:bg-black/80"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </Button>
+              </DialogFooter>
+            </form>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  )
+}
+
