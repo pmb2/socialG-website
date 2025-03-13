@@ -14,9 +14,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, X } from "lucide-react"
 
 interface ContactFormModalProps {
   isOpen: boolean
@@ -78,7 +79,17 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95%] max-w-[95%] sm:max-w-[500px] rounded-xl">
+      <DialogContent className="w-[95%] max-w-[95%] sm:max-w-[500px] rounded-xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+        {/* Mobile Close Button */}
+        <div className="absolute right-4 top-4 z-10">
+          <DialogClose asChild>
+            <Button variant="ghost" size="icon" className="h-8 w-8 p-0 rounded-full">
+              <X className="h-5 w-5" />
+              <span className="sr-only">Close</span>
+            </Button>
+          </DialogClose>
+        </div>
+
         {isSubmitted ? (
           <div className="py-12 flex flex-col items-center justify-center text-center">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -92,7 +103,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-2xl">{title}</DialogTitle>
+              <DialogTitle className="text-2xl pt-4">{title}</DialogTitle>
               <DialogDescription>{description}</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 py-4">
@@ -106,6 +117,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                     onChange={handleChange}
                     placeholder="John Smith"
                     required
+                    className="h-10"
                   />
                 </div>
                 <div className="space-y-2">
@@ -118,6 +130,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                     onChange={handleChange}
                     placeholder="john@example.com"
                     required
+                    className="h-10"
                   />
                 </div>
               </div>
@@ -131,6 +144,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                     onChange={handleChange}
                     placeholder="Your Agency"
                     required
+                    className="h-10"
                   />
                 </div>
                 <div className="space-y-2">
@@ -141,13 +155,14 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                     value={formState.phone}
                     onChange={handleChange}
                     placeholder="(123) 456-7890"
+                    className="h-10"
                   />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="locations">Number of Locations</Label>
                 <Select onValueChange={handleSelectChange} value={formState.locations}>
-                  <SelectTrigger>
+                  <SelectTrigger className="h-10">
                     <SelectValue placeholder="Select number of locations" />
                   </SelectTrigger>
                   <SelectContent>
@@ -166,19 +181,25 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                   value={formState.message}
                   onChange={handleChange}
                   placeholder="Tell us about your needs..."
-                  className="min-h-[100px]"
+                  className="min-h-[80px] py-2"
                   required
                 />
               </div>
-              <DialogFooter className="pt-4">
+              <DialogFooter className="pt-4 pb-2">
                 <Button
                   type="submit"
-                  className="w-full rounded-full bg-black hover:bg-black/80"
+                  className="w-full rounded-full bg-black hover:bg-black/80 h-12"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
               </DialogFooter>
+              
+              <div className="text-center text-sm text-gray-500 pb-2 mt-2">
+                <DialogClose asChild>
+                  <Button variant="link" className="text-gray-500">Cancel</Button>
+                </DialogClose>
+              </div>
             </form>
           </>
         )}
