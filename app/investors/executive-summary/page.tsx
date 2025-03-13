@@ -89,22 +89,22 @@ export default function ExecutiveSummaryPage() {
               <h2 className="text-2xl font-bold mb-4 mt-8 text-[#0080FF]">The Team</h2>
               <div className="grid md:grid-cols-2 gap-8 mt-6">
                 <div className="bg-white p-6 rounded-xl border border-gray-200">
-                  <h3 className="text-xl font-bold mb-2">Brian Martino (50%)</h3>
+                  <h3 className="text-xl font-bold mb-2">Brian Martino</h3>
                   <p className="text-gray-600 mb-4">Chief Executive Officer</p>
                   <ul className="space-y-1 text-sm">
-                    <li>8 years experience as Marketing Agency Director</li>
+                    <li>25+ years experience in software development</li>
                     <li>Previously built and sold AgencyTools, a workflow management SaaS</li>
                     <li>MBA from University</li>
                   </ul>
                 </div>
                 <div className="bg-white p-6 rounded-xl border border-gray-200">
-                  <h3 className="text-xl font-bold mb-2">Paul Backus (50%)</h3>
+                  <h3 className="text-xl font-bold mb-2">Paul Backus</h3>
                   <p className="text-gray-600 mb-4">Chief Technology Officer</p>
                   <ul className="space-y-1 text-sm">
+                    <li>16+ years experience in software development</li>
                     <li>Former AI Research Lead at Tech Company</li>
                     <li>Specialized in natural language processing</li>
                     <li>MS in Computer Science from University</li>
-                    <li>Owns intellectual property for SocialGenius technology</li>
                   </ul>
                 </div>
               </div>
