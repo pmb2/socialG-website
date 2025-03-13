@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Download } from "lucide-react"
+import { InvestorHeader } from "@/components/investor-header"
 
 export default function ExecutiveSummaryPage() {
   return (
@@ -12,22 +12,7 @@ export default function ExecutiveSummaryPage() {
       }}
     >
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20362-u0CJxkd2SYIN4wqY2H5Po0ShF75t7v.png"
-              alt="GBP Automation Pro Logo"
-              width={140}
-              height={140}
-              className="w-auto h-10"
-            />
-          </div>
-          <div className="flex items-center gap-6">
-            <Button className="bg-black text-white hover:bg-black/90 rounded-full px-6">Contact Sales</Button>
-          </div>
-        </div>
-      </header>
+      <InvestorHeader />
 
       <main className="py-12">
         <div className="container mx-auto px-4">

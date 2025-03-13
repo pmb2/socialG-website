@@ -1,27 +1,43 @@
 import { NextResponse } from 'next/server';
+import { generateDocumentPdf } from '@/lib/pdf-generator';
 
 export async function GET() {
-  // In a real implementation, this would generate or fetch a real PDF
-  const dummyPdfBuffer = generateDummyPdf();
+  // Generate a real PDF with content
+  const pdfBuffer = await generateDocumentPdf("Executive Summary", {
+    "Company Overview": 
+      "SocialGenius provides AI-powered GBP Automation for Agencies, enabling\n" +
+      "seamless management of Google Business Profiles at scale.",
+    
+    "Key Metrics": 
+      "• Market Size: $4.2B\n" +
+      "• Annual Revenue: $700k\n" +
+      "• Growth Rate: 127% YoY\n" +
+      "• Customer Retention: 94%\n" +
+      "• Agency Clients: 25+\n" +
+      "• Locations Managed: 5,000+",
+    
+    "Investment Opportunity": 
+      "We're seeking strategic partners to help us scale our platform and reach\n" +
+      "more agency clients worldwide. Our technology gives agencies the power\n" +
+      "to manage thousands of business profiles with minimal human intervention.\n\n" +
+      "Seeking $2.5M in investment to accelerate growth and expand market reach.",
+    
+    "Competitive Advantage": 
+      "• Proprietary AI algorithms for content generation and optimization\n" +
+      "• Seamless integration with existing agency workflows\n" +
+      "• Automated review management and response system\n" +
+      "• Real-time analytics dashboard with actionable insights",
+    
+    "Contact Information": 
+      "Email: investors@socialgenius.ai\n" +
+      "Phone: (800) 555-1234\n" +
+      "Website: www.socialgenius.ai"
+  });
   
-  // Prepare the response with appropriate headers for PDF download
-  const response = new NextResponse(dummyPdfBuffer);
+  // Prepare the response with proper headers for PDF download
+  const response = new NextResponse(pdfBuffer);
   response.headers.set('Content-Type', 'application/pdf');
   response.headers.set('Content-Disposition', 'attachment; filename="SocialGenius-Executive-Summary.pdf"');
   
   return response;
-}
-
-// This is a placeholder function - in a real implementation this would generate a real PDF 
-// using a library like PDFKit, jsPDF, or similar
-function generateDummyPdf() {
-  // This creates an empty PDF (not a valid one, just for demonstration)
-  const pdfHeader = '%PDF-1.4\n';
-  const pdfContent = '1 0 obj\n<</Type/Catalog/Pages 2 0 R>>\nendobj\n' +
-                    '2 0 obj\n<</Type/Pages/Kids[3 0 R]/Count 1>>\nendobj\n' +
-                    '3 0 obj\n<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>\nendobj\n' +
-                    'xref\n0 4\n0000000000 65535 f\n0000000010 00000 n\n0000000053 00000 n\n0000000102 00000 n\n' +
-                    'trailer\n<</Size 4/Root 1 0 R>>\nstartxref\n178\n%%EOF';
-  
-  return Buffer.from(pdfHeader + pdfContent, 'utf-8');
 }
