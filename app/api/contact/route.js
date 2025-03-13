@@ -7,15 +7,18 @@ export async function POST(request) {
         const formData = await request.json();
         const {name, email, company, phone, locations, message} = formData;
 
-        // Create transporter with your email credentials
+        // Create Gmail transporter
         const transporter = nodemailer.createTransport({
-            host: process.env.EMAIL_HOST,
-            port: process.env.EMAIL_PORT,
-            secure: true, // use SSL
+            service: 'gmail',
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
+        });
+
+        console.log('Setting up email with credentials:', {
+            fromEmail: process.env.EMAIL_USER,
+            toEmail: process.env.RECIPIENT_EMAIL,
         });
 
         const mailOptions = {
@@ -27,14 +30,15 @@ export async function POST(request) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Company:</strong> ${company}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Locations:</strong> ${locations}</p>
+        <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+        <p><strong>Locations:</strong> ${locations || 'Not specified'}</p>
         <p><strong>Message:</strong> ${message}</p>
       `,
         };
 
-        // Use await to ensure the email is sent before responding
+        // Send email and wait for the result
         const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent successfully:', info.messageId);
 
         // Return proper response format for Next.js App Router
         return NextResponse.json({success: true, message: 'Email sent successfully'});

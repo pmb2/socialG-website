@@ -65,5 +65,8 @@ export async function GET() {
   response.headers.set('Content-Type', 'application/pdf');
   response.headers.set('Content-Disposition', 'attachment; filename="SocialGenius-Business-Planning.pdf"');
   
+  // Add cache control headers
+  response.headers.set('Cache-Control', 'no-store, max-age=0');
+  
   return response;
 }

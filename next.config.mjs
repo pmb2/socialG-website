@@ -27,6 +27,18 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
+    serverActions: true,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        buffer: require.resolve('buffer/'),
+        stream: require.resolve('stream-browserify'),
+      };
+    }
+    return config;
   },
 }
 
