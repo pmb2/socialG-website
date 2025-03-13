@@ -135,16 +135,16 @@ export default function ExecutiveSummaryPage() {
                 <h3 className="text-xl font-bold mb-4 text-[#FF1681]">Investment Allocation</h3>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-[#FF1681]">$700,000</div>
-                    <p className="text-sm text-gray-600">Product Development</p>
+                    <div className="text-xl sm:text-2xl font-bold text-[#FF1681]">$700k</div>
+                    <p className="text-xs sm:text-sm text-gray-600">Product Development</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-[#C939D6]">$400,000</div>
-                    <p className="text-sm text-gray-600">Marketing & Sales</p>
+                    <div className="text-xl sm:text-2xl font-bold text-[#C939D6]">$400k</div>
+                    <p className="text-xs sm:text-sm text-gray-600">Marketing & Sales</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-[#7B5DFF]">$400,000</div>
-                    <p className="text-sm text-gray-600">Operations & Team</p>
+                    <div className="text-xl sm:text-2xl font-bold text-[#7B5DFF]">$400k</div>
+                    <p className="text-xs sm:text-sm text-gray-600">Operations & Team</p>
                   </div>
                 </div>
               </div>

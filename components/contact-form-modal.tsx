@@ -194,12 +194,6 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
               </DialogFooter>
-              
-              <div className="text-center text-sm text-gray-500 pb-2 mt-2">
-                <DialogClose asChild>
-                  <Button variant="link" className="text-gray-500">Cancel</Button>
-                </DialogClose>
-              </div>
             </form>
           </>
         )}
