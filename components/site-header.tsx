@@ -29,7 +29,7 @@ export function SiteHeader() {
             <div className="w-8 h-8 bg-gradient-to-r from-pink-500 via-purple-500 via-indigo-500 to-blue-500 rounded-md flex items-center justify-center text-white font-bold">
               G
             </div>
-            <span className="font-semibold">GBP Automation Pro</span>
+            <span className="font-semibold">SocialGenius</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <DropdownMenu>

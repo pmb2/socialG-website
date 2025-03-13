@@ -62,7 +62,7 @@ export default function Page() {
           <div className="flex items-center">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20362-u0CJxkd2SYIN4wqY2H5Po0ShF75t7v.png"
-              alt="GBP Automation Pro Logo"
+              alt="SocialGenius Logo"
               width={140}
               height={140}
               className="w-auto h-10"
@@ -146,7 +146,7 @@ export default function Page() {
           <div className="w-full">
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20356-KgsdHMiafVEvhnNmM5ghwgHxvdpvTO.png"
-              alt="GBP Automation Pro Features"
+              alt="SocialGenius Features"
               width={2000}
               height={600}
               className="w-full"
@@ -961,11 +961,11 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-muted-foreground">Everything you need to know about GBP Automation Pro</p>
+              <p className="text-muted-foreground">Everything you need to know about SocialGenius</p>
             </div>
             <div className="max-w-3xl mx-auto space-y-4">
               <FAQItem
-                question="How does GBP Automation Pro help agencies?"
+                question="How does SocialGenius help agencies?"
                 answer="Our platform streamlines the management of multiple Google Business Profiles by providing centralized control, automated optimization, and comprehensive reporting tools specifically designed for agencies."
               />
               <FAQItem
@@ -1002,7 +1002,7 @@ export default function Page() {
                 <div className="px-8 pt-6">
                   <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Get Started Today</h2>
                   <p className="mb-10 text-gray-600">
-                    Join hundreds of successful agencies using GBP Automation Pro to streamline their workflow
+                    Join hundreds of successful agencies using SocialGenius to streamline their workflow
                   </p>
                   <Button
                     size="lg"
@@ -1021,7 +1021,7 @@ export default function Page() {
       {/* Footer */}
       <footer className="py-8 bg-[#1E1E1E]">
         <div className="container mx-auto px-4 text-center text-sm text-gray-400">
-          <p>&copy; 2024 GBP Automation Pro. All rights reserved.</p>
+          <p>&copy; 2024 SocialGenius. All rights reserved.</p>
         </div>
       </footer>
     </div>

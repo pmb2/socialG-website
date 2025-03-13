@@ -33,7 +33,7 @@ export function InvestorHeader() {
             <Link href="/">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20362-u0CJxkd2SYIN4wqY2H5Po0ShF75t7v.png"
-                alt="GBP Automation Pro Logo"
+                alt="SocialGenius Logo"
                 width={140}
                 height={140}
                 className="w-auto h-10"
