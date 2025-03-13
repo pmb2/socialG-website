@@ -79,7 +79,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[95%] max-w-[95%] sm:max-w-[500px] rounded-xl max-h-[90vh] overflow-y-auto p-4 sm:p-6">
+      <DialogContent className="w-[95%] max-w-[95%] sm:max-w-[500px] rounded-xl max-h-[90vh] overflow-y-auto p-4 sm:p-6" closeButton={false}>
         {/* Mobile Close Button */}
         <div className="absolute right-4 top-4 z-10">
           <DialogClose asChild>

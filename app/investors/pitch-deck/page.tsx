@@ -431,7 +431,7 @@ export default function PitchDeckPage() {
           <div className="flex justify-between items-center mb-8">
             <Link href="/investors">
               <Button variant="outline" className="rounded-full">
-                <ArrowLeft className="mr-2 h-4 w-4" /> Back to Investor Materials
+                <ArrowLeft className="mr-2 h-4 w-4" /> Back
               </Button>
             </Link>
             <Link href="/api/download/pitch-deck">
