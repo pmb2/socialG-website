@@ -4,8 +4,9 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Download, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowLeft, Download, ChevronLeft, ChevronRight, Menu } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 // Define slide content
 const slides = [
@@ -393,8 +394,34 @@ export default function PitchDeckPage() {
               className="w-auto h-10"
             />
           </div>
-          <div className="flex items-center gap-6">
-            <Button className="bg-black text-white hover:bg-black/90 rounded-full px-6">Contact Sales</Button>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/">
+              <Button className="bg-black text-white hover:bg-black/90 rounded-full px-6">Contact Sales</Button>
+            </Link>
+          </div>
+          
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full p-0">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[250px] px-6">
+                <div className="flex flex-col gap-6 pt-10">
+                  <Link 
+                    href="/" 
+                    className="text-lg font-medium bg-black text-white hover:bg-black/90 rounded-full px-6 py-2 text-center"
+                  >
+                    Contact Sales
+                  </Link>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>

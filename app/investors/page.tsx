@@ -3,8 +3,9 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Download, FileText, PieChart, BarChart, FileCheck, CheckSquare } from "lucide-react"
+import { ArrowRight, Download, FileText, PieChart, BarChart, FileCheck, CheckSquare, Menu } from "lucide-react"
 import { useState } from "react"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ContactFormModal } from "@/components/contact-form-modal"
 
 export default function InvestorsPage() {
@@ -40,13 +41,42 @@ export default function InvestorsPage() {
               />
             </Link>
           </div>
-          <div className="flex items-center gap-6">
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
             <Button
               className="bg-black text-white hover:bg-black/90 rounded-full px-6"
               onClick={() => openContactModal("sales")}
             >
               Contact Sales
             </Button>
+          </div>
+          
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full p-0">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[250px] px-6">
+                <div className="flex flex-col gap-6 pt-10">
+                  <Button
+                    className="bg-black text-white hover:bg-black/90 rounded-full w-full"
+                    onClick={() => {
+                      openContactModal("sales");
+                      document.querySelector('[data-state="open"]')?.dispatchEvent(
+                        new KeyboardEvent('keydown', { key: 'Escape' })
+                      );
+                    }}
+                  >
+                    Contact Sales
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>
