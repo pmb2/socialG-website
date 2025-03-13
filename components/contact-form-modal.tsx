@@ -78,7 +78,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px] rounded-xl">
+      <DialogContent className="w-[95%] max-w-[95%] sm:max-w-[500px] rounded-xl">
         {isSubmitted ? (
           <div className="py-12 flex flex-col items-center justify-center text-center">
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -96,7 +96,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
               <DialogDescription>{description}</DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
                   <Input
@@ -121,7 +121,7 @@ export function ContactFormModal({ isOpen, onClose, type = "sales" }: ContactFor
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="company">Company</Label>
                   <Input

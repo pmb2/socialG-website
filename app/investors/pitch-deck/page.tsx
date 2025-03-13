@@ -448,7 +448,7 @@ export default function PitchDeckPage() {
                   animate="center"
                   exit="exit"
                   transition={{ type: "tween", duration: 0.5 }}
-                  className={`absolute inset-0 p-10 bg-gradient-to-b ${slides[currentSlide].bgColor}`}
+                  className={`absolute inset-0 p-10 bg-gradient-to-b ${slides[currentSlide].bgColor} overflow-y-auto`}
                 >
                   <div className="h-full flex flex-col">
                     <div className="mb-8 text-center">
@@ -457,7 +457,7 @@ export default function PitchDeckPage() {
                         <p className="text-gray-600">{slides[currentSlide].subtitle}</p>
                       )}
                     </div>
-                    <div className="flex-grow">{slides[currentSlide].content}</div>
+                    <div className="flex-grow overflow-y-auto">{slides[currentSlide].content}</div>
                     <div className="mt-auto pt-4 flex justify-center">
                       <div className="flex space-x-2">
                         {slides.map((_, index) => (

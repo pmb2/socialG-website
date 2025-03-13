@@ -87,7 +87,7 @@ export default function Page() {
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight mb-6 max-w-[1200px] mx-auto leading-[1.2]">
               Streamline Your Google Business Profile Management
             </h1>
-            <h2 className="text-4xl md:text-[48px] font-bold mb-8 bg-gradient-to-r from-[#FFA726] via-[#FF1681] via-[#C939D6] to-[#7B5DFF] text-transparent bg-clip-text whitespace-nowrap mx-auto inline-block leading-[1.2]">
+            <h2 className="text-2xl sm:text-3xl md:text-[48px] font-bold mb-8 bg-gradient-to-r from-[#FFA726] via-[#FF1681] via-[#C939D6] to-[#7B5DFF] text-transparent bg-clip-text mx-auto inline-block leading-[1.2]">
               AI-Powered GBP Automation for Agencies
             </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground mb-10 text-lg">
@@ -128,7 +128,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
               <div className="bg-white p-6 rounded-xl shadow-md text-center">
                 <div className="text-[#FF1681] font-bold text-5xl mb-2">87%</div>
                 <p className="text-gray-700">Increase in profile views within 90 days</p>
@@ -160,7 +160,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
               <div className="flex gap-4">
                 <div className="flex-shrink-0 mt-1">
                   <Clock className="w-8 h-8 text-[#FF1681]" />
@@ -219,7 +219,7 @@ export default function Page() {
 
             <div className="mt-12 bg-gray-50 p-8 rounded-xl max-w-5xl mx-auto">
               <h3 className="text-2xl font-bold mb-4 text-center">Exclusive Agency Benefits</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
                   "Dedicated account manager for agencies with 10+ locations",
                   "Priority support with 2-hour response time",
@@ -259,7 +259,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Feature Cards - 6 cards in 3 columns */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="h-3 bg-gradient-to-r from-[#FF1681] to-[#C939D6]"></div>
@@ -427,8 +427,9 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="max-w-6xl mx-auto overflow-x-auto">
-              <table className="w-full border-collapse">
+            <div className="max-w-6xl mx-auto overflow-x-auto -mx-4 sm:mx-0">
+              <div className="inline-block min-w-full align-middle p-4 sm:p-0">
+                <table className="w-full border-collapse">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
                     <th className="py-4 px-6 text-left min-w-[250px]">Features</th>
@@ -711,6 +712,7 @@ export default function Page() {
                   </tr>
                 </tbody>
               </table>
+              </div>
             </div>
 
             <div className="mt-16 text-center">
@@ -747,18 +749,18 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {/* Basic Plan */}
               <div className="bg-white border border-gray-200 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div className="p-8">
                   <h3 className="text-xl font-bold mb-2">Basic</h3>
                   <p className="text-gray-600 mb-6">For small businesses with 1-10 locations</p>
-                  <div className="flex items-end gap-1 mb-1">
+                  <div className="flex flex-wrap items-end gap-1 mb-1">
                     <span className="text-4xl font-bold">$199</span>
                     <span className="text-gray-500 mb-1">/mo per location</span>
                   </div>
                   <div className="flex items-center gap-1 mb-6 text-sm text-gray-500">
-                    <Info className="w-4 h-4" />
+                    <Info className="w-4 h-4 flex-shrink-0" />
                     <span>$2,000 annual software fee</span>
                   </div>
 
@@ -886,10 +888,10 @@ export default function Page() {
               </div>
             </div>
 
-            <div className="mt-12 max-w-4xl mx-auto bg-gray-50 rounded-2xl p-8">
+            <div className="mt-12 max-w-4xl mx-auto bg-gray-50 rounded-2xl p-6 sm:p-8">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div className="md:w-2/3">
-                  <h3 className="text-2xl font-bold mb-2">Why our pricing works for agencies</h3>
+                <div className="w-full md:w-2/3">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-2">Why our pricing works for agencies</h3>
                   <ul className="space-y-2">
                     {[
                       "The $199/month Basic plan is strategically priced to remain accessible to small businesses.",
@@ -899,14 +901,14 @@ export default function Page() {
                     ].map((point, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="w-5 h-5 text-[#FF1681] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{point}</span>
+                        <span className="text-gray-700 text-sm sm:text-base">{point}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="md:w-1/3">
+                <div className="w-full md:w-1/3 mt-4 md:mt-0">
                   <Button
-                    className="w-full bg-black text-white hover:bg-black/80 rounded-full px-8 py-6"
+                    className="w-full bg-black text-white hover:bg-black/80 rounded-full px-4 sm:px-8 py-4 sm:py-6"
                     onClick={() => openContactModal("consultation")}
                   >
                     Schedule a Consultation
