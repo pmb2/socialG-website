@@ -75,15 +75,27 @@ export async function GET() {
     }
   ];
   
-  const pdfBuffer = await generateSlideDeckPdf("Pitch Deck", slides);
-  
-  // Prepare the response with appropriate headers for PDF download
-  const response = new NextResponse(pdfBuffer);
-  response.headers.set('Content-Type', 'application/pdf');
-  response.headers.set('Content-Disposition', 'attachment; filename="SocialGenius-Pitch-Deck.pdf"');
-  
-  // Add cache control headers
-  response.headers.set('Cache-Control', 'no-store, max-age=0');
-  
-  return response;
+  try {
+    const pdfBuffer = await generateSlideDeckPdf("Pitch Deck", slides);
+    
+    // Create the response with proper PDF headers
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/pdf');
+    headers.append('Content-Disposition', 'attachment; filename="SocialGenius-Pitch-Deck.pdf"');
+    headers.append('Cache-Control', 'no-store, max-age=0');
+    
+    // Return the response with the PDF buffer
+    return new Response(pdfBuffer, {
+      status: 200,
+      headers: headers
+    });
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+    return new Response(JSON.stringify({ error: 'Failed to generate PDF' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
 }

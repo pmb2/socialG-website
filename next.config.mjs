@@ -7,8 +7,8 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Required for static export to AWS
-  output: 'export',
+  // Comment out 'export' output to enable API routes
+  // output: 'export',
   
   // Essential for S3/Amplify hosting
   trailingSlash: true,
@@ -38,6 +38,12 @@ const nextConfig = {
     }
     return config;
   },
+  env: {
+    // Make sure these match your environment variables
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASS: process.env.EMAIL_PASS,
+    RECIPIENT_EMAIL: process.env.RECIPIENT_EMAIL,
+  }
 }
 
 // Merge with user config if exists

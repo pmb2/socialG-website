@@ -60,13 +60,25 @@ export async function GET() {
       "• $200k for working capital"
   });
   
-  // Prepare the response with proper headers for PDF download
-  const response = new NextResponse(pdfBuffer);
-  response.headers.set('Content-Type', 'application/pdf');
-  response.headers.set('Content-Disposition', 'attachment; filename="SocialGenius-Business-Planning.pdf"');
-  
-  // Add cache control headers
-  response.headers.set('Cache-Control', 'no-store, max-age=0');
-  
-  return response;
+  try {
+    // Create the response with proper PDF headers
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/pdf');
+    headers.append('Content-Disposition', 'attachment; filename="SocialGenius-Business-Planning.pdf"');
+    headers.append('Cache-Control', 'no-store, max-age=0');
+    
+    // Return the response with the PDF buffer
+    return new Response(pdfBuffer, {
+      status: 200,
+      headers: headers
+    });
+  } catch (error) {
+    console.error('Error preparing PDF response:', error);
+    return new Response(JSON.stringify({ error: 'Failed to generate PDF' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
 }

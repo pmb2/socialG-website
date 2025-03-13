@@ -7,23 +7,41 @@ export async function POST(request) {
         const formData = await request.json();
         const {name, email, company, phone, locations, message} = formData;
 
+        // Retrieve email credentials
+        const EMAIL_USER = process.env.EMAIL_USER;
+        const EMAIL_PASS = process.env.EMAIL_PASS;
+        const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL;
+        
+        // Verify email credentials are available
+        if (!EMAIL_USER || !EMAIL_PASS || !RECIPIENT_EMAIL) {
+            console.error('Missing email configuration:', {
+                hasEmailUser: Boolean(EMAIL_USER),
+                hasEmailPass: Boolean(EMAIL_PASS),
+                hasRecipientEmail: Boolean(RECIPIENT_EMAIL)
+            });
+            return NextResponse.json(
+                {success: false, error: 'Email configuration is incomplete'},
+                {status: 500}
+            );
+        }
+
         // Create Gmail transporter
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: EMAIL_USER,
+                pass: EMAIL_PASS,
             },
         });
 
         console.log('Setting up email with credentials:', {
-            fromEmail: process.env.EMAIL_USER,
-            toEmail: process.env.RECIPIENT_EMAIL,
+            fromEmail: EMAIL_USER,
+            toEmail: RECIPIENT_EMAIL,
         });
 
         const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.RECIPIENT_EMAIL,
+            from: EMAIL_USER,
+            to: RECIPIENT_EMAIL,
             subject: `New Contact Form Submission from ${name}`,
             html: `
         <h3>New Contact Form Submission</h3>

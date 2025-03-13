@@ -118,7 +118,7 @@ export async function generateDocumentPdf(documentTitle: string, content: Record
     doc.text(`Page ${i} of ${pageCount}`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
   }
   
-  // Convert to buffer
+  // Convert to proper PDF buffer with correct format
   return Buffer.from(doc.output('arraybuffer'));
 }
 
@@ -228,6 +228,12 @@ export async function generateSlideDeckPdf(documentTitle: string, slides: Array<
     doc.text("CONFIDENTIAL | © " + new Date().getFullYear() + " SocialGenius", width/2, height - 10, { align: 'center' });
   });
   
-  // Convert to buffer
-  return Buffer.from(doc.output('arraybuffer'));
+  // Convert to proper PDF buffer with correct format
+  try {
+    const pdfOutput = doc.output('arraybuffer');
+    return Buffer.from(pdfOutput);
+  } catch (error) {
+    console.error('Error generating PDF buffer:', error);
+    throw error;
+  }
 }
