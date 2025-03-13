@@ -51,6 +51,7 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
         setIsSubmitting(true);
 
         try {
+            // Make sure the path is correct
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -58,6 +59,8 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
                 },
                 body: JSON.stringify(formState),
             });
+
+            const data = await response.json();
 
             if (response.ok) {
                 setIsSubmitting(false);
@@ -77,12 +80,13 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
                     onClose();
                 }, 3000);
             } else {
-                throw new Error('Failed to send message');
+                console.error('Error response:', data);
+                throw new Error(data.error || 'Failed to send message');
             }
         } catch (error) {
             console.error('Error:', error);
             setIsSubmitting(false);
-            // Handle error state here
+            // Handle error state here - maybe show an error message to the user
         }
     };
 
