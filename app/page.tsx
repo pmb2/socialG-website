@@ -796,10 +796,6 @@ export default function Page() {
                     <span className="text-4xl font-bold">$199</span>
                     <span className="text-gray-500 mb-1">/mo per location</span>
                   </div>
-                  <div className="flex items-center gap-1 mb-6 text-sm text-gray-500">
-                    <Info className="w-4 h-4 flex-shrink-0" />
-                    <span>$2,000 annual software fee</span>
-                  </div>
 
                   <div className="space-y-4">
                     <p className="font-medium">Includes:</p>
@@ -833,10 +829,6 @@ export default function Page() {
                     <span className="text-4xl font-bold">$169</span>
                     <span className="text-gray-500 mb-1">/mo per location</span>
                   </div>
-                  <div className="flex items-center gap-1 mb-6 text-sm text-gray-500">
-                    <Info className="w-4 h-4" />
-                    <span>$2,000 annual software fee</span>
-                  </div>
 
                   <div className="space-y-4">
                     <p className="font-medium">Everything in Basic, plus:</p>
@@ -866,10 +858,6 @@ export default function Page() {
                   <div className="flex items-end gap-1 mb-1">
                     <span className="text-4xl font-bold">$119</span>
                     <span className="text-gray-500 mb-1">/mo per location</span>
-                  </div>
-                  <div className="flex items-center gap-1 mb-6 text-sm text-gray-500">
-                    <Info className="w-4 h-4" />
-                    <span>$2,000 annual software fee</span>
                   </div>
 
                   <div className="space-y-4">
