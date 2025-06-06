@@ -45,9 +45,9 @@ export function InvestorHeader() {
           <div className="hidden md:flex items-center gap-6">
             <Button
               className="bg-black text-white hover:bg-black/90 rounded-full px-6"
-              onClick={() => openContactModal("sales")}
+              onClick={() => openContactModal("consultation")}
             >
-              Contact Sales
+              Request a Demo
             </Button>
           </div>
           
@@ -65,14 +65,14 @@ export function InvestorHeader() {
                   <Button
                     className="bg-black text-white hover:bg-black/90 rounded-full w-full"
                     onClick={() => {
-                      openContactModal("sales");
+                      openContactModal("consultation");
                       // Close the sheet after opening the modal
                       document.querySelector('[data-state="open"]')?.dispatchEvent(
                         new KeyboardEvent('keydown', { key: 'Escape' })
                       );
                     }}
                   >
-                    Contact Sales
+                    Request a Demo
                   </Button>
                 </div>
               </SheetContent>

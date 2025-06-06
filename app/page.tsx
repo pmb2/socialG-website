@@ -71,14 +71,11 @@ export default function Page() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/investors" className="text-gray-600 hover:text-black">
-              Investors
-            </Link>
             <Button
               className="bg-black text-white hover:bg-black/90 rounded-full px-6"
-              onClick={() => openContactModal("sales")}
+              onClick={() => openContactModal("consultation")}
             >
-              Contact Sales
+              Request a Demo
             </Button>
           </div>
           
@@ -93,22 +90,16 @@ export default function Page() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[250px] px-6">
                 <div className="flex flex-col gap-6 pt-10">
-                  <Link 
-                    href="/investors" 
-                    className="text-lg font-medium hover:text-black transition-colors"
-                  >
-                    Investors
-                  </Link>
                   <Button
                     className="bg-black text-white hover:bg-black/90 rounded-full w-full"
                     onClick={() => {
-                      openContactModal("sales");
+                      openContactModal("consultation");
                       document.querySelector('[data-state="open"]')?.dispatchEvent(
                         new KeyboardEvent('keydown', { key: 'Escape' })
                       );
                     }}
                   >
-                    Contact Sales
+                    Request a Demo
                   </Button>
                 </div>
               </SheetContent>
@@ -134,9 +125,9 @@ export default function Page() {
             <Button
               size="lg"
               className="min-w-[200px] rounded-full bg-black text-white hover:bg-black/80 shadow-[0_4px_8px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_10px_rgba(0,0,0,0.4)] transition-all duration-200 hover:translate-y-[-2px]"
-              onClick={() => openContactModal("sales")}
+              onClick={() => openContactModal("consultation")}
             >
-              Contact Sales
+              Request a Demo
             </Button>
           </div>
         </section>
@@ -759,9 +750,9 @@ export default function Page() {
               <Button
                 size="lg"
                 className="rounded-full bg-black text-white hover:bg-black/80 shadow-lg px-8 py-6"
-                onClick={() => openContactModal("sales")}
+                onClick={() => openContactModal("consultation")}
               >
-                Contact Sales
+                Request a Demo
               </Button>
             </div>
           </div>
@@ -995,9 +986,9 @@ export default function Page() {
                   <Button
                     size="lg"
                     className="min-w-[200px] rounded-full bg-black text-white hover:bg-black/80 py-6 shadow-[0_4px_8px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_10px_rgba(0,0,0,0.4)] transition-all duration-200 hover:translate-y-[-2px]"
-                    onClick={() => openContactModal("sales")}
+                    onClick={() => openContactModal("consultation")}
                   >
-                    Contact Sales
+                    Request a Demo
                   </Button>
                 </div>
               </div>
