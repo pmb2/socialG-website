@@ -5,6 +5,7 @@ import { ChevronDown, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 const productItems = [
   { title: "Dashboard Overview", href: "#" },
@@ -25,11 +26,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-pink-500 via-purple-500 via-indigo-500 to-blue-500 rounded-md flex items-center justify-center text-white font-bold">
-              G
-            </div>
-            <span className="font-semibold">SocialGenius</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20362-u0CJxkd2SYIN4wqY2H5Po0ShF75t7v.png"
+              alt="SocialGenius Logo"
+              width={140}
+              height={140}
+              className="w-auto h-10"
+            />
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             <DropdownMenu>
