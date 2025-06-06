@@ -1009,7 +1009,18 @@ export default function Page() {
       {/* Footer */}
       <footer className="py-8 bg-[#1E1E1E]">
         <div className="container mx-auto px-4 text-center text-sm text-gray-400">
-          <p>&copy; 2024 SocialGenius. All rights reserved.</p>
+          <p className="mb-2">&copy; 2025 SocialGenius. All rights reserved.</p>
+          <div className="flex justify-center gap-4 mt-2">
+            <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+            <Link href="/data-deletion" className="text-gray-400 hover:text-white transition-colors">
+              Data Deletion
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
