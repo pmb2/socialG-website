@@ -10,6 +10,14 @@
       "StackName": "amplify-socialgwebsite-dev-704a2",
       "StackId": "arn:aws:cloudformation:us-east-2:520055020650:stack/amplify-socialgwebsite-dev-704a2/ce3cd530-6259-11f0-8eb2-02e90d7e1483",
       "AmplifyAppId": "dvvuoqu7pmyee"
+    },
+    "categories": {
+      "function": {
+        "contactFormMailer": {
+          "deploymentBucketName": "amplify-socialgwebsite-dev-704a2-deployment",
+          "s3Key": "amplify-builds/contactFormMailer-797a35436f7339675955-build.zip"
+        }
+      }
     }
   }
 }

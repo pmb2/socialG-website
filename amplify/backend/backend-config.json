@@ -1,1 +1,27 @@
-{}
+{
+  "function": {
+    "contactFormMailer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_contactFormMailer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactFormMailer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    }
+  }
+}
