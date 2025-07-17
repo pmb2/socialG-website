@@ -6,7 +6,7 @@ export async function POST(request) {
     const formData = await request.json();
 
     const client = new LambdaClient({
-      region: process.env.REGION || "us-east-1",
+      region: process.env.AWS_REGION || "us-east-1",
     });
 
     const invokePayload = Buffer.from(
