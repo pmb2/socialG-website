@@ -5,23 +5,16 @@ export async function POST(request) {
   try {
     const formData = await request.json();
 
-    const awsRegion = process.env.AWS_REGION || "us-east-1";
-    const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID;
-    const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-
-    if (!awsAccessKeyId || !awsSecretAccessKey) {
-      throw new Error("AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are not set.");
-    }
-
     const client = new LambdaClient({
-      region: awsRegion,
-      credentials: {
-        accessKeyId: awsAccessKeyId,
-        secretAccessKey: awsSecretAccessKey,
-      },
+      region: process.env.REGION || "us-east-1",
     });
 
-    const invokePayload = Buffer.from(JSON.stringify(formData), "utf8");
+    const invokePayload = Buffer.from(
+      JSON.stringify({
+        body: JSON.stringify(formData),
+      }),
+      "utf8"
+    );
 
     const command = new InvokeCommand({
       FunctionName: 'contactFormMailer',
