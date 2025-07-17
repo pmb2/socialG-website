@@ -22,6 +22,46 @@
           "resourceName": "contactFormMailer"
         }
       ]
+    },
+    "AMPLIFY_function_contactFormMailer_smtpFromEmail": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactFormMailer_smtpHost": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactFormMailer_smtpPassword": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactFormMailer_smtpPort": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
+    },
+    "AMPLIFY_function_contactFormMailer_smtpUsername": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "contactFormMailer"
+        }
+      ]
     }
   }
 }
