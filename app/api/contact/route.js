@@ -5,7 +5,21 @@ export async function POST(request) {
   try {
     const formData = await request.json();
 
-    const client = new LambdaClient({ region: process.env.AWS_REGION || "us-east-1" });
+    const awsRegion = process.env.AWS_REGION || "us-east-1";
+    const awsAccessKeyId = process.env.AWS_ACCESS_KEY_ID;
+    const awsSecretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+
+    if (!awsAccessKeyId || !awsSecretAccessKey) {
+      throw new Error("AWS credentials (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY) are not set.");
+    }
+
+    const client = new LambdaClient({
+      region: awsRegion,
+      credentials: {
+        accessKeyId: awsAccessKeyId,
+        secretAccessKey: awsSecretAccessKey,
+      },
+    });
 
     const invokePayload = Buffer.from(JSON.stringify(formData), "utf8");
 

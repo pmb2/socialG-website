@@ -61,7 +61,7 @@ export default function Page() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20362-u0CJxkd2SYIN4wqY2H5Po0ShF75t7v.png"
+              src="/logo.png"
               alt="SocialGenius Logo"
               width={140}
               height={140}
@@ -136,7 +136,7 @@ export default function Page() {
         <section className="mt-0 bg-white">
           <div className="w-full">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20356-KgsdHMiafVEvhnNmM5ghwgHxvdpvTO.png"
+              src="/features.png"
               alt="SocialGenius Features"
               width={2000}
               height={600}
@@ -971,7 +971,7 @@ export default function Page() {
               <div className="text-center">
                 <div className="w-full">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%20307%20%282%29-Ep9IRNEofTuSftUUBvXiLc444O4xoW.png"
+                    src="/logo.png"
                     alt="Creative Brain with Colorful Splash"
                     width={800}
                     height={600}
