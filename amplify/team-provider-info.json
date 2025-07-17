@@ -15,7 +15,7 @@
       "function": {
         "contactFormMailer": {
           "deploymentBucketName": "amplify-socialgwebsite-dev-704a2-deployment",
-          "s3Key": "amplify-builds/contactFormMailer-797a35436f7339675955-build.zip",
+          "s3Key": "amplify-builds/contactFormMailer-4241647943744252376c-build.zip",
           "smtpHost": "email-smtp.us-east-2.amazonaws.com",
           "smtpPort": "587",
           "smtpUsername": "AKIAXSFNR3RVIQAZ3CYV",

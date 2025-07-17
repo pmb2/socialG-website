@@ -8,6 +8,7 @@
     "@types/aws-lambda": "^8.10.92"
   },
   "dependencies": {
+    "aws-amplify": "^6.15.3",
     "nodemailer": "^7.0.5"
   }
 }

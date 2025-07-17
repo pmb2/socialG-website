@@ -361,7 +361,7 @@ export default function PitchDeckPage() {
   }, [currentSlide])
 
   const variants = {
-    enter: (direction) => ({
+    enter: (direction: number) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
     }),
@@ -369,7 +369,7 @@ export default function PitchDeckPage() {
       x: 0,
       opacity: 1,
     },
-    exit: (direction) => ({
+    exit: (direction: number) => ({
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
     }),

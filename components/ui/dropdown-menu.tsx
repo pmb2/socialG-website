@@ -29,7 +29,9 @@ DropdownMenuContent.displayName = RadixDropdownMenuContent.displayName
 
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof RadixDropdownMenuItem>,
-  React.ComponentPropsWithoutRef<typeof RadixDropdownMenuItem>
+  React.ComponentPropsWithoutRef<typeof RadixDropdownMenuItem> & {
+    inset?: boolean;
+  }
 >(({ className, inset, ...props }, ref) => (
   <RadixDropdownMenuItem
     ref={ref}

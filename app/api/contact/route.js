@@ -1,18 +1,23 @@
 import { NextResponse } from 'next/server';
-import { Amplify } from 'aws-amplify';
-import {invoke} from 'aws-amplify/functions';
-import awsconfig from '../../../../aws-exports';
-
-Amplify.configure(awsconfig);
+import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda";
 
 export async function POST(request) {
   try {
     const formData = await request.json();
 
-    const result = await invoke({
-      functionName: 'contactFormMailer',
-      payload: JSON.stringify(formData),
+    const client = new LambdaClient({ region: process.env.AWS_REGION || "us-east-1" });
+
+    const invokePayload = Buffer.from(JSON.stringify(formData), "utf8");
+
+    const command = new InvokeCommand({
+      FunctionName: 'contactFormMailer',
+      InvocationType: "RequestResponse",
+      Payload: invokePayload,
     });
+
+    const { Payload } = await client.send(command);
+
+    const result = Payload ? JSON.parse(Buffer.from(Payload).toString("utf8")) : null;
 
     return NextResponse.json(result);
   } catch (error) {

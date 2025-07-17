@@ -170,7 +170,7 @@ export async function generateSlideDeckPdf(documentTitle: string, slides: Array<
     
     // Add separator line
     const colorIndex = index % 5;
-    let lineColor;
+    let lineColor: number[] = colors.pink;
     
     switch (colorIndex) {
       case 0: lineColor = colors.pink; break;
