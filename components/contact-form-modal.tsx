@@ -27,7 +27,7 @@ interface ContactFormModalProps {
 
 export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormModalProps) {
     const [formState, setFormState] = useState({
-        name: "",
+        full_name: "",
         email: "",
         company: "",
         phone: "",
@@ -51,16 +51,13 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
         setIsSubmitting(true);
 
         try {
-            // Make sure the path is correct
-            const response = await fetch('/api/contact', {
+            const response = await fetch('https://formspree.io/f/mblkzdpo', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formState),
             });
-
-            const data = await response.json();
 
             if (response.ok) {
                 setIsSubmitting(false);
@@ -70,7 +67,7 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
                 setTimeout(() => {
                     setIsSubmitted(false);
                     setFormState({
-                        name: "",
+                        full_name: "",
                         email: "",
                         company: "",
                         phone: "",
@@ -80,6 +77,7 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
                     onClose();
                 }, 3000);
             } else {
+                const data = await response.json();
                 console.error('Error response:', data);
                 throw new Error(data.error || 'Failed to send message');
             }
@@ -132,11 +130,11 @@ export function ContactFormModal({isOpen, onClose, type = "sales"}: ContactFormM
                         <form onSubmit={handleSubmit} className="space-y-4 py-4">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="name">Full Name</Label>
+                                    <Label htmlFor="full_name">Full Name</Label>
                                     <Input
-                                        id="name"
-                                        name="name"
-                                        value={formState.name}
+                                        id="full_name"
+                                        name="full_name"
+                                        value={formState.full_name}
                                         onChange={handleChange}
                                         placeholder="John Smith"
                                         required
