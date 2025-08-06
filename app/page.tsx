@@ -115,7 +115,7 @@ export default function Page() {
             <h1 className="text-5xl md:text-[64px] font-bold tracking-tight mb-6 max-w-[1200px] mx-auto leading-[1.2]">
               Streamline Your Google Business Profile Management
             </h1>
-            <h2 className="text-2xl sm:text-3xl md:text-[48px] font-bold mb-8 bg-gradient-to-r from-[#FFA726] via-[#FF1681] via-[#C939D6] to-[#7B5DFF] text-transparent bg-clip-text mx-auto inline-block leading-[1.2]">
+            <h2 className="text-2xl sm:text-3xl md:text-[48px] font-bold mb-8 bg-gradient-to-r from-[#FFA726] via-[#FF1681] via-[#C939D6] to-[#7B5DFF] text-transparent bg-clip-text mx-auto inline-block">
               AI-Powered GBP Automation for Agencies
             </h2>
             <p className="max-w-3xl mx-auto text-muted-foreground mb-10 text-lg">
