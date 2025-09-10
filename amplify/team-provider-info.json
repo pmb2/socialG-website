@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-socialgwebsite-dev-704a2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::520055020650:role/amplify-socialgwebsite-dev-704a2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::520055020650:role/amplify-socialgwebsite-dev-704a2-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-socialgwebsite-dev-704a2-deployment",
+      "UnauthRoleName": "amplify-socialgwebsite-dev-704a2-unauthRole",
+      "StackName": "amplify-socialgwebsite-dev-704a2",
+      "StackId": "arn:aws:cloudformation:us-east-2:520055020650:stack/amplify-socialgwebsite-dev-704a2/ce3cd530-6259-11f0-8eb2-02e90d7e1483",
+      "AmplifyAppId": "dvvuoqu7pmyee"
+    },
+    "categories": {
+      "function": {
+        "contactFormMailer": {
+          "deploymentBucketName": "amplify-socialgwebsite-dev-704a2-deployment",
+          "s3Key": "amplify-builds/contactFormMailer-4241647943744252376c-build.zip",
+          "smtpHost": "email-smtp.us-east-2.amazonaws.com",
+          "smtpPort": "587",
+          "smtpUsername": "AKIAXSFNR3RVIQAZ3CYV",
+          "smtpPassword": "BJimGd8Ivwqprz5qoTmcnpPJPtoa5Qnp2KbMewatxY2q",
+          "smtpFromEmail": "sales@socialgenius.com"
+        }
+      }
+    }
+  }
+}

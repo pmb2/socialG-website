@@ -1,0 +1,25 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "smtpHost",
+      "environmentVariableName": "SMTP_HOST"
+    },
+    {
+      "cloudFormationParameterName": "smtpPort",
+      "environmentVariableName": "SMTP_PORT"
+    },
+    {
+      "cloudFormationParameterName": "smtpUsername",
+      "environmentVariableName": "SMTP_USERNAME"
+    },
+    {
+      "cloudFormationParameterName": "smtpPassword",
+      "environmentVariableName": "SMTP_PASSWORD"
+    },
+    {
+      "cloudFormationParameterName": "smtpFromEmail",
+      "environmentVariableName": "SMTP_FROM_EMAIL"
+    }
+  ]
+}
