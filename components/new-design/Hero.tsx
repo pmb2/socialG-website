@@ -88,8 +88,8 @@ const Hero = ({ onDemoClick, onBetaClick }: HeroProps) => {
                 <div className="space-y-4">
                   {/* Mockup header */}
                   <div className="flex items-center gap-3 pb-4 border-b border-white/20">
-                    <Image src="/logo.png" alt="SocialGenius logo - AI-powered social media automation platform" width={40} height={40} className="h-10 w-10" />
-                    <div className="text-white font-semibold text-lg">SocialGenius Dashboard</div>
+                    <Image src="/logo.png" alt="SocialGenius logo - AI-powered social media automation platform" width={40} height={30} className="h-auto w-10" />
+                    <div className="text-white font-semibold text-lg">Dashboard</div>
                   </div>
 
                   {/* Content blocks */}
