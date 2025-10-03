@@ -31,10 +31,7 @@ const Navbar = ({ onDemoClick }: NavbarProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="SocialGenius logo - AI-powered social media automation platform" width={40} height={40} className="h-10 w-10" />
-            <span className="text-xl font-bold text-foreground">
-              SocialGenius
-            </span>
+            <Image src="/logo.png" alt="SocialGenius logo - AI-powered social media automation platform" width={40} height={30} className="h-auto w-10" />
           </div>
 
           {/* Desktop Navigation */}

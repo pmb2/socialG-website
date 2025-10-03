@@ -43,8 +43,7 @@ const Footer = () => {
           {/* Brand column */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/logo.png" alt="SocialGenius" width={40} height={40} className="h-10 w-10" />
-              <span className="text-xl font-bold">SocialGenius</span>
+              <Image src="/logo.png" alt="SocialGenius" width={40} height={30} className="h-auto w-10" />
             </div>
             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
               The Genius Way to Scale Your Social Presence. AI-powered automation for agencies and SMBs.
