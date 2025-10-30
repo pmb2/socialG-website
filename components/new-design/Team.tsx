@@ -1,17 +1,15 @@
-import { Linkedin, Mail } from "lucide-react"
+"use client"
+
+import { Linkedin, Mail, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useState, useRef } from "react"
 
 const Team = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
   const team = [
-    {
-      name: "Brian Martino",
-      role: "CEO & Co-Founder",
-      bio: "20+ years in digital marketing and SaaS. Previously scaled multiple agencies to 7-figures. Passionate about empowering agencies with AI.",
-      linkedin: "https://www.linkedin.com/in/brianmartino/",
-      email: "brian@social-genius.com",
-      image: "/brian_headshot.jfif"
-    },
     {
       name: "Paul Backus",
       role: "CTO & Co-Founder",
@@ -19,6 +17,14 @@ const Team = () => {
       linkedin: "https://www.linkedin.com/in/backuspaul/",
       email: "paul@social-genius.com",
       image: "/paul_headshot.jfif"
+    },
+    {
+      name: "Brian Martino",
+      role: "CEO & Co-Founder",
+      bio: "20+ years in digital marketing and SaaS. Previously scaled multiple agencies to 7-figures. Passionate about empowering agencies with AI.",
+      linkedin: "https://www.linkedin.com/in/brianmartino/",
+      email: "brian@social-genius.com",
+      image: "/brian_headshot.jfif"
     },
     {
       name: "Stacey Figueras",
@@ -29,6 +35,28 @@ const Team = () => {
       image: "/stacey_headshot.jfif"
     }
   ]
+
+  const scrollToIndex = (index: number) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const cardWidth = 350 + 32 // card width + gap
+      container.scrollTo({
+        left: index * cardWidth,
+        behavior: 'smooth'
+      })
+      setCurrentIndex(index)
+    }
+  }
+
+  const handlePrevious = () => {
+    const newIndex = currentIndex > 0 ? currentIndex - 1 : team.length - 1
+    scrollToIndex(newIndex)
+  }
+
+  const handleNext = () => {
+    const newIndex = currentIndex < team.length - 1 ? currentIndex + 1 : 0
+    scrollToIndex(newIndex)
+  }
 
   return (
     <section id="team" className="py-20 lg:py-32">
@@ -48,7 +76,46 @@ const Team = () => {
           </p>
         </div>
 
-        <div className="flex gap-8 max-w-6xl mx-auto overflow-x-auto pb-4 snap-x snap-mandatory">
+        {/* Carousel Navigation - Mobile */}
+        <div className="flex justify-center items-center gap-4 mb-6 lg:hidden">
+          <Button
+            onClick={handlePrevious}
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+            aria-label="Previous team member"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </Button>
+          <div className="flex gap-2">
+            {team.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentIndex
+                    ? "bg-primary w-8"
+                    : "bg-muted-foreground/30"
+                }`}
+                aria-label={`Go to team member ${index + 1}`}
+              />
+            ))}
+          </div>
+          <Button
+            onClick={handleNext}
+            variant="outline"
+            size="icon"
+            className="rounded-full"
+            aria-label="Next team member"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
+        </div>
+
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-8 max-w-6xl mx-auto overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+        >
           {team.map((member, index) => (
             <div
               key={index}
